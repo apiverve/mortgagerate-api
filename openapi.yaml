@@ -1,0 +1,84 @@
+openapi: 3.0.4
+info:
+  title: Mortgage Rate
+  description: >-
+    Mortgage Rate is a tool for retrieving current and historical US fixed-rate
+    mortgage rates. It returns weekly average rates for 30-year and 15-year
+    fixed mortgages from the Freddie Mac Primary Mortgage Market Survey.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.0
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+  - url: https://api.apiverve.com/
+paths:
+  /v1/mortgagerate:
+    get:
+      summary: Get Mortgage Rate
+      description: Get the current or historical mortgage rate for a specific type.
+      operationId: mortgagerate
+      parameters:
+        - name: type
+          in: query
+          schema:
+            type: string
+          required: true
+          description: The mortgage type
+          example: 30year
+        - name: year
+          in: query
+          schema:
+            type: integer
+          required: false
+          description: >-
+            Specific year to retrieve all weekly rates for (1971-present).
+            Returns latest rate if not specified.
+          example: 2023
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: object
+                    description: data
+              example:
+                status: ok
+                error: null
+                data:
+                  rateType: 30year
+                  name: 30-Year Fixed Rate Mortgage
+                  term: 30
+                  type: fixed
+                  rate: 6.89
+                  date: '2026-01-30'
+                  country: US
+                  lastUpdated: '2026-02-05T06:00:00.000Z'
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occurred, try again later
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+  - api_key: []
