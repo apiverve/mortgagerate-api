@@ -44,7 +44,10 @@ from apiverve_mortgagerate.apiClient import MortgagerateAPIClient
 # Initialize the client with your APIVerve API key
 api = MortgagerateAPIClient("[YOUR_API_KEY]")
 
-query = { "type": "30year", "year": 2023 }
+query = {
+    "type": "30year",
+    "year": 2023
+}
 
 try:
     # Make the API call
@@ -82,7 +85,10 @@ Using the API client, you can perform requests to the API.
 ###### Define Query
 
 ```python
-query = { "type": "30year", "year": 2023 }
+query = {
+    "type": "30year",
+    "year": 2023
+}
 ```
 
 ###### Simple Request
@@ -127,7 +133,10 @@ from apiverve_mortgagerate.apiClient import MortgagerateAPIClient, MortgagerateA
 
 api = MortgagerateAPIClient("[YOUR_API_KEY]")
 
-query = { "type": "30year", "year": 2023 }
+query = {
+    "type": "30year",
+    "year": 2023
+}
 
 try:
     result = api.execute(query)
@@ -148,7 +157,10 @@ from apiverve_mortgagerate.apiClient import MortgagerateAPIClient, MortgagerateA
 
 api = MortgagerateAPIClient("[YOUR_API_KEY]")
 
-query = { "type": "30year", "year": 2023 }
+query = {
+    "type": "30year",
+    "year": 2023
+}
 
 try:
     result = api.execute(query)
@@ -182,7 +194,10 @@ The client supports the context manager protocol for automatic resource cleanup:
 ```python
 from apiverve_mortgagerate.apiClient import MortgagerateAPIClient, MortgagerateAPIClientError
 
-query = { "type": "30year", "year": 2023 }
+query = {
+    "type": "30year",
+    "year": 2023
+}
 
 # Using context manager ensures proper cleanup
 with MortgagerateAPIClient("[YOUR_API_KEY]") as api:
@@ -208,7 +223,10 @@ from apiverve_mortgagerate.apiClient import MortgagerateAPIClient
 # Enable debug mode
 api = MortgagerateAPIClient("[YOUR_API_KEY]", debug=True)
 
-query = { "type": "30year", "year": 2023 }
+query = {
+    "type": "30year",
+    "year": 2023
+}
 
 # Debug information will be printed to console
 result = api.execute(query)
@@ -223,8 +241,12 @@ from apiverve_mortgagerate.apiClient import MortgagerateAPIClient
 
 api = MortgagerateAPIClient("[YOUR_API_KEY]")
 
+query = {
+    "type": "30year",
+    "year": 2023
+}
+
 try:
-    query = { "type": "30year", "year": 2023 }
     result = api.execute(query)
     print(result)
 finally:
