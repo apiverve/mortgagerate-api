@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/mortgagerate",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "description": "Mortgage Rate is a tool for retrieving current and historical US fixed-rate mortgage rates. It returns weekly average rates for 30-year and 15-year fixed mortgages from the Freddie Mac Primary Mortgage Market Survey.",
   "main": "index.js",
   "types": "index.d.ts",
