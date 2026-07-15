@@ -35,10 +35,15 @@ paths:
           schema:
             type: integer
           required: false
-          description: >-
-            Specific year to retrieve all weekly rates for (1971-present).
-            Returns latest rate if not specified.
+          description: Year to retrieve rates for (1971-present). Requires month parameter.
           example: 2023
+        - name: month
+          in: query
+          schema:
+            type: integer
+          required: false
+          description: Month to retrieve rates for (1-12). Required when year is specified.
+          example: 6
       responses:
         '200':
           description: Successful Response
@@ -64,10 +69,23 @@ paths:
                   name: 30-Year Fixed Rate Mortgage
                   term: 30
                   type: fixed
-                  rate: 6.89
-                  date: '2026-01-30'
                   country: US
-                  lastUpdated: '2026-02-05T06:00:00.000Z'
+                  year: 2023
+                  month: 6
+                  count: 4
+                  rates:
+                    - week: '2023-06-01'
+                      rate: 6.79
+                    - week: '2023-06-08'
+                      rate: 6.71
+                    - week: '2023-06-15'
+                      rate: 6.69
+                    - week: '2023-06-22'
+                      rate: 6.67
+                  change1w: -0.02
+                  changeDirection: down
+                  previousRate: 6.69
+                  previousDate: '2023-06-15'
         '401':
           description: Your request was not authorized, or your API Key was invalid
         '404':
