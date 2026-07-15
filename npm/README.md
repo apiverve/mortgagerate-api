@@ -61,7 +61,8 @@ Using the API is simple. All you have to do is make a request. The API will retu
 ```javascript
 var query = {
   type: "30year",
-  year: 2023
+  year: 2023,
+  month: 6
 };
 
 api.execute(query, function (error, data) {
@@ -82,7 +83,8 @@ You can also use promises to make requests. The API returns a promise that you c
 ```javascript
 var query = {
   type: "30year",
-  year: 2023
+  year: 2023,
+  month: 6
 };
 
 api.execute(query)
@@ -104,7 +106,8 @@ You can also use async/await to make requests. The API returns a promise that yo
 async function makeRequest() {
     var query = {
   type: "30year",
-  year: 2023
+  year: 2023,
+  month: 6
 };
 
     try {
@@ -129,10 +132,32 @@ async function makeRequest() {
     "name": "30-Year Fixed Rate Mortgage",
     "term": 30,
     "type": "fixed",
-    "rate": 6.89,
-    "date": "2026-01-30",
     "country": "US",
-    "lastUpdated": "2026-02-05T06:00:00.000Z"
+    "year": 2023,
+    "month": 6,
+    "count": 4,
+    "rates": [
+      {
+        "week": "2023-06-01",
+        "rate": 6.79
+      },
+      {
+        "week": "2023-06-08",
+        "rate": 6.71
+      },
+      {
+        "week": "2023-06-15",
+        "rate": 6.69
+      },
+      {
+        "week": "2023-06-22",
+        "rate": 6.67
+      }
+    ],
+    "change1w": -0.02,
+    "changeDirection": "down",
+    "previousRate": 6.69,
+    "previousDate": "2023-06-15"
   }
 }
 ```
