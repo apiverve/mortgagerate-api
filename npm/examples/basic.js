@@ -16,7 +16,8 @@ const api = new mortgagerateAPI({
 // Example query
 var query = {
   type: "30year",
-  year: 2023
+  year: 2023,
+  month: 6
 };
 
 // Make the API request using callback
