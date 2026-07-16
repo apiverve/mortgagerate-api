@@ -17,9 +17,15 @@ namespace APIVerve.API.MortgageRate
         public string Type { get; set; }
 
         /// <summary>
-        /// Specific year to retrieve all weekly rates for (1971-present). Returns latest rate if not specified.
+        /// Year to retrieve rates for (1971-present). Requires month parameter.
         /// </summary>
         [JsonProperty("year")]
-        public string Year { get; set; }
+        public int? Year { get; set; }
+
+        /// <summary>
+        /// Month to retrieve rates for (1-12). Required when year is specified.
+        /// </summary>
+        [JsonProperty("month")]
+        public int? Month { get; set; }
     }
 }
