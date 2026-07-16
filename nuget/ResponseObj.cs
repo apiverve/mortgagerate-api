@@ -25,6 +25,9 @@ namespace APIVerve.API.MortgageRate
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
@@ -36,21 +39,57 @@ namespace APIVerve.API.MortgageRate
         public string Name { get; set; }
 
         [JsonProperty("term")]
-        public long Term { get; set; }
+        public long? Term { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }
 
-        [JsonProperty("rate")]
-        public double Rate { get; set; }
-
-        [JsonProperty("date")]
-        public DateTimeOffset Date { get; set; }
-
         [JsonProperty("country")]
         public string Country { get; set; }
 
-        [JsonProperty("lastUpdated")]
-        public DateTimeOffset LastUpdated { get; set; }
+        [JsonProperty("year")]
+        public long? Year { get; set; }
+
+        [JsonProperty("month")]
+        public long? Month { get; set; }
+
+        [JsonProperty("count")]
+        public long? Count { get; set; }
+
+        [JsonProperty("rates")]
+        public Rate[] Rates { get; set; }
+
+        [JsonProperty("change1w")]
+        public double? Change1W { get; set; }
+
+        [JsonProperty("changeDirection")]
+        public string ChangeDirection { get; set; }
+
+        [JsonProperty("previousRate")]
+        public double? PreviousRate { get; set; }
+
+        [JsonProperty("previousDate")]
+        public DateTimeOffset? PreviousDate { get; set; }
+    }
+
+    public partial class Rate
+    {
+        [JsonProperty("week")]
+        public DateTimeOffset? Week { get; set; }
+
+        [JsonProperty("rate")]
+        public double? RateRate { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
