@@ -1,13 +1,13 @@
-# [Mortgage Rate API](https://apiverve.com/marketplace/mortgagerate?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+# [Mortgage Rate API](https://apiverve.com/marketplace/mortgagerate?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 
-Mortgage Rate is a tool for retrieving current and historical US fixed-rate mortgage rates. It returns weekly average rates for 30-year and 15-year fixed mortgages from the Freddie Mac Primary Mortgage Market Survey.
+Mortgage Rate reports weekly US fixed mortgage rates for 15-year and 30-year terms. Pass the loan term to get the latest percentage rate, survey date, and direction of weekly change.
 
 The Mortgage Rate API provides a simple, reliable way to integrate mortgage rate functionality into your applications. Built for developers who need production-ready mortgage rate capabilities without the complexity of building from scratch.
 
-**[View API Details →](https://apiverve.com/marketplace/mortgagerate?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)**
+**[View API Details →](https://apiverve.com/marketplace/mortgagerate?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/mortgagerate?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/mortgagerate?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 [![Method](https://img.shields.io/badge/Method-GET-blue.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Multi--Platform-orange.svg)](#installation)
 
@@ -161,7 +161,7 @@ go get github.com/apiverve/mortgagerate-api/go
 
 ## Documentation
 
-- 🏠 **API Home:** [Mortgage Rate API](https://apiverve.com/marketplace/mortgagerate?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home:** [Mortgage Rate API](https://apiverve.com/marketplace/mortgagerate?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 📚 **API Reference:** [docs.apiverve.com/ref/mortgagerate](https://docs.apiverve.com/ref/mortgagerate)
 - 📖 **OpenAPI Spec:** [openapi.yaml](./openapi.yaml)
 - 💡 **Examples:** [examples/](./examples/)
@@ -191,11 +191,57 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the Mortgage Rate API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "rateType": "30year",
+    "name": "30-Year Fixed Rate Mortgage",
+    "term": 30,
+    "type": "fixed",
+    "country": "US",
+    "year": 2023,
+    "month": 6,
+    "count": 4,
+    "rates": [
+      {
+        "week": "2023-06-01",
+        "rate": 6.79
+      },
+      {
+        "week": "2023-06-08",
+        "rate": 6.71
+      },
+      {
+        "week": "2023-06-15",
+        "rate": 6.69
+      },
+      {
+        "week": "2023-06-22",
+        "rate": 6.67
+      }
+    ],
+    "change1w": -0.02,
+    "changeDirection": "down",
+    "previousRate": 6.69,
+    "previousDate": "2023-06-15"
+  }
 }
 ```
 
@@ -203,7 +249,7 @@ All responses are JSON with this structure:
 
 ## Support & Community
 
-- 🏠 **API Home**: [Mortgage Rate API](https://apiverve.com/marketplace/mortgagerate?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home**: [Mortgage Rate API](https://apiverve.com/marketplace/mortgagerate?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 💬 **Support**: [https://apiverve.com/contact](https://apiverve.com/contact)
 - 🐛 **Issues**: [GitHub Issues](../../issues)
 - 📖 **Documentation**: [https://docs.apiverve.com](https://docs.apiverve.com)

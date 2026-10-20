@@ -2,9 +2,9 @@ openapi: 3.0.4
 info:
   title: Mortgage Rate
   description: >-
-    Mortgage Rate is a tool for retrieving current and historical US fixed-rate
-    mortgage rates. It returns weekly average rates for 30-year and 15-year
-    fixed mortgages from the Freddie Mac Primary Mortgage Market Survey.
+    Mortgage Rate reports weekly US fixed mortgage rates for 15-year and 30-year
+    terms. Pass the loan term to get the latest percentage rate, survey date,
+    and direction of weekly change.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
@@ -19,7 +19,7 @@ servers:
 paths:
   /v1/mortgagerate:
     get:
-      summary: Get Mortgage Rate
+      summary: Mortgage Rate
       description: Get the current or historical mortgage rate for a specific type.
       operationId: mortgagerate
       parameters:
