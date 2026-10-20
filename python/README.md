@@ -1,13 +1,12 @@
 Mortgage Rate API
 ============
 
-Mortgage Rate is a tool for retrieving current and historical US fixed-rate mortgage rates. It returns weekly average rates for 30-year and 15-year fixed mortgages from the Freddie Mac Primary Mortgage Market Survey.
+Mortgage Rate reports weekly US fixed mortgage rates for 15-year and 30-year terms. Pass the loan term to get the latest percentage rate, survey date, and direction of weekly change.
 
-![Build Status](https://img.shields.io/badge/build-passing-green)
-![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
-![Prod Ready](https://img.shields.io/badge/production-ready-blue)
 
-This is a Python API Wrapper for the [Mortgage Rate API](https://apiverve.com/marketplace/mortgagerate?utm_source=pypi&utm_medium=readme)
+[![PyPI version](https://img.shields.io/pypi/v/apiverve-mortgagerate.svg)](https://pypi.org/project/apiverve-mortgagerate/)
+
+This is a Python wrapper for the [Mortgage Rate API](https://apiverve.com/marketplace/mortgagerate?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -29,8 +28,8 @@ pip3 install apiverve-mortgagerate
 
 ## Configuration
 
-Before using the mortgagerate API client, you have to setup your account and obtain your API Key.
-You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=readme)
+Before using the Mortgage Rate API client, you have to setup your account and obtain your API Key.
+You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -46,7 +45,8 @@ api = MortgagerateAPIClient("[YOUR_API_KEY]")
 
 query = {
     "type": "30year",
-    "year": 2023
+    "year": 2023,
+    "month": 6
 }
 
 try:
@@ -63,7 +63,7 @@ except Exception as e:
 
 ## Usage
 
-The Mortgage Rate API documentation is found here: [https://docs.apiverve.com/ref/mortgagerate](https://docs.apiverve.com/ref/mortgagerate?utm_source=pypi&utm_medium=readme).
+The Mortgage Rate API documentation is found here: [https://docs.apiverve.com/ref/mortgagerate](https://docs.apiverve.com/ref/mortgagerate?utm_source=pypi&utm_medium=referral&utm_content=readme).
 You can find parameters, example responses, and status codes documented here.
 
 ### Setup
@@ -87,7 +87,8 @@ Using the API client, you can perform requests to the API.
 ```python
 query = {
     "type": "30year",
-    "year": 2023
+    "year": 2023,
+    "month": 6
 }
 ```
 
@@ -112,10 +113,32 @@ print(result)
     "name": "30-Year Fixed Rate Mortgage",
     "term": 30,
     "type": "fixed",
-    "rate": 6.89,
-    "date": "2026-01-30",
     "country": "US",
-    "lastUpdated": "2026-02-05T06:00:00.000Z"
+    "year": 2023,
+    "month": 6,
+    "count": 4,
+    "rates": [
+      {
+        "week": "2023-06-01",
+        "rate": 6.79
+      },
+      {
+        "week": "2023-06-08",
+        "rate": 6.71
+      },
+      {
+        "week": "2023-06-15",
+        "rate": 6.69
+      },
+      {
+        "week": "2023-06-22",
+        "rate": 6.67
+      }
+    ],
+    "change1w": -0.02,
+    "changeDirection": "down",
+    "previousRate": 6.69,
+    "previousDate": "2023-06-15"
   }
 }
 ```
@@ -135,7 +158,8 @@ api = MortgagerateAPIClient("[YOUR_API_KEY]")
 
 query = {
     "type": "30year",
-    "year": 2023
+    "year": 2023,
+    "month": 6
 }
 
 try:
@@ -159,7 +183,8 @@ api = MortgagerateAPIClient("[YOUR_API_KEY]")
 
 query = {
     "type": "30year",
-    "year": 2023
+    "year": 2023,
+    "month": 6
 }
 
 try:
@@ -196,7 +221,8 @@ from apiverve_mortgagerate.apiClient import MortgagerateAPIClient, MortgagerateA
 
 query = {
     "type": "30year",
-    "year": 2023
+    "year": 2023,
+    "month": 6
 }
 
 # Using context manager ensures proper cleanup
@@ -225,7 +251,8 @@ api = MortgagerateAPIClient("[YOUR_API_KEY]", debug=True)
 
 query = {
     "type": "30year",
-    "year": 2023
+    "year": 2023,
+    "month": 6
 }
 
 # Debug information will be printed to console
@@ -243,7 +270,8 @@ api = MortgagerateAPIClient("[YOUR_API_KEY]")
 
 query = {
     "type": "30year",
-    "year": 2023
+    "year": 2023,
+    "month": 6
 }
 
 try:
@@ -258,7 +286,7 @@ finally:
 
 ## Customer Support
 
-Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=readme).
+Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=referral&utm_content=readme).
 
 ---
 
@@ -269,12 +297,12 @@ Stay up to date by following [@apiverveHQ](https://twitter.com/apiverveHQ) on Tw
 
 ## Legal
 
-All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=readme) and all legal documents and agreements.
+All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=referral&utm_content=readme) and all legal documents and agreements.
 
 ---
 
 ## License
-Licensed under the The MIT License (MIT)
+Licensed under the MIT License (MIT)
 
 Copyright (&copy;) 2026 APIVerve, and EvlarSoft LLC
 

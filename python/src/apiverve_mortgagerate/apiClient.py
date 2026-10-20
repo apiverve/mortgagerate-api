@@ -1,6 +1,6 @@
 import re
-from typing import Dict, Optional, Any
-from dataclasses import dataclass, List
+from typing import Dict, Optional, Any, List
+from dataclasses import dataclass
 import requests
 
 
@@ -25,7 +25,8 @@ class MortgagerateAPIClient:
     # Validation rules for parameters (generated from schema)
     VALIDATION_RULES = {
         "type": {"type": "string", "required": True},
-        "year": {"type": "integer", "required": False, "min": 1971, "max": 2030}
+        "year": {"type": "integer", "required": False, "min": 1971, "max": 2030},
+        "month": {"type": "integer", "required": False, "min": 1, "max": 12}
     }
 
     # Format validation patterns
