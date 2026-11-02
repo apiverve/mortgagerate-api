@@ -31,16 +31,21 @@ declare module '@apiverve/mortgagerate' {
       type:            null | string;
       country:         null | string;
       year:            number | null;
-      month:           number | null;
       count:           number | null;
-      rates:           Rate[];
+      rates:           History[];
       change1W:        number | null;
       changeDirection: null | string;
       previousRate:    number | null;
       previousDate:    Date | null;
+      change4W:        number | null;
+      change52W:       number | null;
+      high52W:         number | null;
+      low52W:          number | null;
+      average52W:      number | null;
+      history:         History[];
   }
   
-  interface Rate {
+  interface History {
       week: Date | null;
       rate: number | null;
   }

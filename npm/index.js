@@ -30,7 +30,7 @@ class mortgagerateWrapper {
         this.baseURL = 'https://api.apiverve.com/v1/mortgagerate';
 
         // Validation rules for parameters (generated from schema)
-        this.validationRules = {"type":{"type":"string","required":true},"year":{"type":"integer","required":false,"min":1971,"max":2030},"month":{"type":"integer","required":false,"min":1,"max":12}};
+        this.validationRules = {"type":{"type":"string","required":true},"year":{"type":"integer","required":false,"min":1971,"max":2030},"month":{"type":"integer","required":false,"min":1,"max":12},"history":{"type":"boolean","required":false,"default":false},"changes":{"type":"boolean","required":false,"default":false}};
     }
 
     /**
