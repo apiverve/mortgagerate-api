@@ -15,7 +15,7 @@ use APIVerve\Mortgagerate\Exceptions\ValidationException;
  * @example Basic usage
  * ```php
  * $client = new Client('your_api_key');
- * $response = $client->execute(['type' => '30year', 'year' => 2023, 'month' => 6]);
+ * $response = $client->execute(['type' => '30year', 'year' => 2023, 'month' => 6, 'history' => true, 'changes' => true]);
  * print_r($response);
  * ```
  *
@@ -36,7 +36,9 @@ class Client
     private const VALIDATION_RULES = [
         'type' => ['type' => 'string', 'required' => true],
         'year' => ['type' => 'integer', 'required' => false, 'min' => 1971, 'max' => 2030],
-        'month' => ['type' => 'integer', 'required' => false, 'min' => 1, 'max' => 12]
+        'month' => ['type' => 'integer', 'required' => false, 'min' => 1, 'max' => 12],
+        'history' => ['type' => 'boolean', 'required' => false],
+        'changes' => ['type' => 'boolean', 'required' => false]
     ];
 
     /**
