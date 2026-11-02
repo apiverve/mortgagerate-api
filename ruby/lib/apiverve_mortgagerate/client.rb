@@ -10,7 +10,7 @@ module APIVerve
     #
     # @example Basic usage
     #   client = APIVerve::Mortgagerate::Client.new(api_key: "your_api_key")
-    #   response = client.execute({ type: "30year", year: 2023, month: 6 })
+    #   response = client.execute({ type: "30year", year: 2023, month: 6, history: true, changes: true })
     #   puts response
     #
     # @see https://apiverve.com/marketplace/mortgagerate?utm_source=ruby&utm_medium=referral&utm_content=readme
@@ -19,7 +19,7 @@ module APIVerve
       DEFAULT_TIMEOUT = 30
 
       # Validation rules for parameters
-      VALIDATION_RULES = { 'type' => { type: 'string', required: true }, 'year' => { type: 'integer', required: false, min: 1971, max: 2030 }, 'month' => { type: 'integer', required: false, min: 1, max: 12 } }
+      VALIDATION_RULES = { 'type' => { type: 'string', required: true }, 'year' => { type: 'integer', required: false, min: 1971, max: 2030 }, 'month' => { type: 'integer', required: false, min: 1, max: 12 }, 'history' => { type: 'boolean', required: false }, 'changes' => { type: 'boolean', required: false } }
 
       # Format validation patterns
       FORMAT_PATTERNS = {
