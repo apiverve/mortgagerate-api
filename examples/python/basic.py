@@ -18,7 +18,7 @@ def call_mortgagerate_api():
     """
     try:
         # Query parameters
-        params &#x3D; {&#x27;type&#x27;: &#x27;30year&#x27;}
+        params &#x3D; {&#x27;type&#x27;: &#x27;30year&#x27;, &#x27;changes&#x27;: true}
 
         headers = {
             'x-api-key': API_KEY

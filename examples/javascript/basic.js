@@ -15,7 +15,8 @@ async function callMortgageRateAPI() {
   try {
     // Query parameters
     const params &#x3D; new URLSearchParams({
-            type: &#x27;30year&#x27;
+            type: &#x27;30year&#x27;,
+            changes: true
         });
 
     const response = await fetch(`${API_URL}?${params}`, {

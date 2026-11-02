@@ -15,6 +15,7 @@ public class BasicExample {
             // Query parameters
             Map&lt;String, Object&gt; parameters &#x3D; new HashMap&lt;&gt;();
         parameters.put(&quot;type&quot;, &quot;30year&quot;);
+        parameters.put(&quot;changes&quot;, true);
 
             // Execute the API request
             APIResponse response = client.execute(parameters);
