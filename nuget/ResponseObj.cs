@@ -50,14 +50,11 @@ namespace APIVerve.API.MortgageRate
         [JsonProperty("year")]
         public long? Year { get; set; }
 
-        [JsonProperty("month")]
-        public long? Month { get; set; }
-
         [JsonProperty("count")]
         public long? Count { get; set; }
 
         [JsonProperty("rates")]
-        public Rate[] Rates { get; set; }
+        public History[] Rates { get; set; }
 
         [JsonProperty("change1w")]
         public double? Change1W { get; set; }
@@ -70,15 +67,33 @@ namespace APIVerve.API.MortgageRate
 
         [JsonProperty("previousDate")]
         public DateTimeOffset? PreviousDate { get; set; }
+
+        [JsonProperty("change4w")]
+        public double? Change4W { get; set; }
+
+        [JsonProperty("change52w")]
+        public double? Change52W { get; set; }
+
+        [JsonProperty("high52w")]
+        public double? High52W { get; set; }
+
+        [JsonProperty("low52w")]
+        public double? Low52W { get; set; }
+
+        [JsonProperty("average52w")]
+        public double? Average52W { get; set; }
+
+        [JsonProperty("history")]
+        public History[] History { get; set; }
     }
 
-    public partial class Rate
+    public partial class History
     {
         [JsonProperty("week")]
         public DateTimeOffset? Week { get; set; }
 
         [JsonProperty("rate")]
-        public double? RateRate { get; set; }
+        public double? Rate { get; set; }
     }
 
     public partial class Premium

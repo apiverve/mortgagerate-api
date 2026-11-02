@@ -27,5 +27,17 @@ namespace APIVerve.API.MortgageRate
         /// </summary>
         [JsonProperty("month")]
         public int? Month { get; set; }
+
+        /// <summary>
+        /// Include the weekly rates for the 52 weeks ending at the latest survey (current rate only)
+        /// </summary>
+        [JsonProperty("history")]
+        public bool? History { get; set; }
+
+        /// <summary>
+        /// Include the 4-week and 52-week changes and the 52-week high, low and average (current rate only)
+        /// </summary>
+        [JsonProperty("changes")]
+        public bool? Changes { get; set; }
     }
 }

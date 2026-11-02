@@ -69,7 +69,9 @@ namespace APIVerve.API.MortgageRate
         {
             { "type", new ValidationRule { Type = "string", Required = true } },
             { "year", new ValidationRule { Type = "integer", Required = false, Min = 1971, Max = 2030 } },
-            { "month", new ValidationRule { Type = "integer", Required = false, Min = 1, Max = 12 } }
+            { "month", new ValidationRule { Type = "integer", Required = false, Min = 1, Max = 12 } },
+            { "history", new ValidationRule { Type = "boolean", Required = false } },
+            { "changes", new ValidationRule { Type = "boolean", Required = false } }
         };
 
         /// <summary>Format validation patterns</summary>
