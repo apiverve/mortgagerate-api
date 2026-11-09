@@ -1,0 +1,16 @@
+name: apiverve_mortgagerate
+description: "Mortgage Rate reports weekly US fixed mortgage rates for 15-year and 30-year terms. Pass the loan term to get the latest percentage rate, survey date, and direction of weekly change, while paid plans add 4-week and 52-week changes, the 52-week high, low and average, and the last 52 weekly rates."
+version: 1.2.5
+homepage: https://apiverve.com/marketplace/mortgagerate?utm_source=dart&utm_medium=referral&utm_content=homepage
+repository: https://github.com/apiverve/mortgagerate-api/tree/main/dart
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  http: ^1.1.0
+  http_parser: ^4.0.0
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0
